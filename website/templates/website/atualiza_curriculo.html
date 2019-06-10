@@ -1,0 +1,206 @@
+{% extends "website/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}Cadastro de Curriculos{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Atualizar Dados do Currículo</h5>
+            <form method="post">
+            <!-- Não se esqueça dessa tag -->
+            {% csrf_token %}
+            <!-- Nome -->
+            <div class="row">
+              <div class="input-group mb-3 col-8">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text">Nome</span>
+                </div>
+                {% render_field form.nome class+="form-control" %}
+              </div>
+
+              <!-- CPF -->
+              <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">CPF</span>
+                </div>
+                {% render_field form.cpf class+="form-control" %}
+              </div>
+            </div>
+
+            <!-- TELEFONE CEL. -->
+            <div class="row">
+              <div class="input-group mb-3 col-6">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Celular</span>
+                </div>
+                {% render_field form.TelCelular class+="form-control" %}
+              </div>
+
+              <!-- TELEFONE =FIXO -->
+              <div class="input-group mb-3 col-6">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Tel. Fixo</span>
+                </div>
+                {% render_field form.TelFixo class+="form-control" %}
+              </div>
+            </div>
+
+              <!-- SEXO -->
+            <div class="row">
+              <div class="input-group mb-3 col-4" >
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Sexo</span>
+                </div>
+                {% render_field form.sexo class+="form-control" %}
+              </div>
+
+                <!-- estado civil -->
+              <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Estado Civil</span>
+                </div>
+                {% render_field form.estado_civil class+="form-control" %}
+              </div>
+            </div>
+
+              <!-- E-mail -->
+            <div class="row">
+              <div class="input-group mb-3 col-6">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">E-mail</span>
+                </div>
+                {% render_field form.email class+="form-control" %}
+              </div>
+            </div>
+              <!-- IDADE -->
+            <div class="row">
+              <div class="input-group mb-3 col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Idade</span>
+                </div>
+                {% render_field form.idade class+="form-control" %}
+              </div>
+
+              <!-- Remuneração -->
+              <div class="input-group mb-3 col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Remuneração</span>
+                </div>
+                {% render_field form.remuneracao class+="form-control" %}
+              </div>
+            </div>
+              <!-- Login -->
+            <div class="row">
+              <div class="input-group mb-3 col-sm-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Login</span>
+                </div>
+                {% render_field form.login class+="form-control" %}
+              </div>
+            </div>
+              <!-- Rua -->
+            <div class="row">
+              <div class="input-group mb-3 col-sm-6">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Rua</span>
+                </div>
+                {% render_field form.rua class+="form-control" %}
+              </div>
+
+                <!-- Nº  -->
+              <div class="input-group mb-3 col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Nº</span>
+                </div>
+                {% render_field form.numero class+="form-control" %}
+              </div>
+            </div>
+
+             <!-- Bairro -->
+            <div class="row">
+              <div class="input-group mb-3 col-sm-6">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Bairro</span>
+                </div>
+                {% render_field form.bairro class+="form-control" %}
+              </div>
+              <!-- Cidade -->
+              <div class="input-group mb-3 col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Cidade</span>
+                </div>
+                {% render_field form.cidade class+="form-control" %}
+              </div>
+
+                <!-- Estadoo -->
+              <div class="input-group mb-3 col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Estado</span>
+                </div>
+                {% render_field form.estado class+="form-control" %}
+              </div>
+            </div>
+              <!-- CEP -->
+            <div class="row">
+              <div class="input-group mb-3 col-sm-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">CEP</span>
+                </div>
+                {% render_field form.cep class+="form-control" %}
+              </div>
+            </div>
+              <!-- Currículo -->
+            <div class="row">
+             <div class="input-group mb-3 col-6">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Currículo</span>
+                </div>
+                <!--<div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01">-->
+                  {% render_field form.curriculo class+="form-control" %}
+                  <!--<label class="custom-file-label" for="form.curriculo">Escolher arquivo</label>-->
+                </div>
+              </div>
+            <!--</div>-->
+            <!-- Data de cadastro -->
+            <div class="row">
+              <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Data Cadastro</span>
+                </div>
+                {% render_field form.criadoData class+="form-control" %}
+              </div>
+                <!-- Status -->
+              <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Status</span>
+                </div>
+                {% render_field form.status class+="form-control" %}
+              </div>
+            </div>
+              <!-- Descrição -->
+            <div class="row">
+              <div class="input-group mb-3 col-8">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Descrição</span>
+                </div>
+                {% render_field form.descricao class+="form-control" %}
+              </div>
+            </div>
+            <hr>
+            <div class="text-right">
+              <a href="{% url 'website:lista_curriculo' %}" class="btn btn-outline-primary">Voltar</a>
+              <button class="btn btn-primary">Enviar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

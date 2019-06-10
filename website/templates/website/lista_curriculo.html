@@ -1,0 +1,65 @@
+{% extends "website/_layouts/base.html" %}
+
+{% block title %}Lista de Curriculos{% endblock %}
+
+{% load primeira_letra %}
+
+{% block conteudo %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Lista de Curriculos</h5>
+
+          {% if curriculos|length > 0 %}
+            <p class="card-text">
+              Aqui está a lista de <code>Currículos</code> cadastrados.
+            </p>
+
+            <table class="table">
+              <thead class="thead-dark">
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Nome</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">email</th>
+                <th scope="col" class="text-center">Ações</th>
+              </tr>
+              </thead>
+              <tbody>
+              {% for curriculo in curriculos %}
+                <tr>
+                  <th scope="row">{{ curriculo.nome|primeira_letra }}</th>
+                  <td>{{ curriculo.nome }}</td>
+                  <td>{{ curriculo.cpf }}</td>
+                  <td>{{ curriculo.TelCelular }}</td>
+                  <td>{{ curriculo.email }}</td>
+                  <td class="text-center">
+                    <a href="{% url 'website:atualiza_curriculo' pk=curriculo.id %}"
+                       class="btn btn-primary">Atualizar</a>
+                    <a href="{% url 'website:deleta_curriculo' pk=curriculo.id %}"
+                      class="btn btn-danger">Excluir</a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        {% else %}
+          <div class="text-center mt-5 mb-5 jumbotron">
+            <h5>Nenhum <code>Currículo</code> cadastrado ainda.</h5>
+          </div>
+        {% endif %}
+          <hr />
+          <div class="text-right">
+            <a href="{% url 'website:cadastra_curriculo' %}" class="btn btn-primary">
+              Cadastrar Currículo
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
